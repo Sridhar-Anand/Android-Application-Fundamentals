@@ -16,8 +16,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.123" />
 
     <TextView
         android:id="@+id/textView3"
@@ -29,11 +31,55 @@
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
+
+    <CheckBox
+        android:id="@+id/check_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Sample_CheckBox"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="@+id/check_box"
+        app:layout_constraintStart_toStartOf="@+id/check_box"
+        app:layout_constraintTop_toBottomOf="@+id/check_box">
+
+        <RadioButton
+            android:id="@+id/radioBtn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Radio Button 1"
+            app:layout_constraintEnd_toEndOf="@+id/check_box"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/check_box"
+            app:layout_constraintTop_toBottomOf="@+id/check_box" />
+
+        <RadioButton
+            android:id="@+id/radioBtn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Radio Button 2"
+            app:layout_constraintEnd_toEndOf="@+id/radioBtn1"
+            app:layout_constraintStart_toStartOf="@+id/radioBtn1"
+            app:layout_constraintTop_toBottomOf="@+id/radioBtn1" />
+
+
+    </RadioGroup>
+
+
     <Button
         android:id="@+id/btn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="350dp"
         android:fontFamily="serif"
         android:text="Go To Youtube"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
@@ -51,5 +97,7 @@
         app:layout_constraintEnd_toEndOf="@+id/btn2"
         app:layout_constraintStart_toStartOf="@+id/btn2"
         app:layout_constraintTop_toBottomOf="@+id/btn2" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,17 +9,45 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 
 public class secondActivity extends AppCompatActivity {
+
+    CheckBox checkBox;
+    RadioGroup radioGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
+        checkBox = findViewById(R.id.check_box);
+//  In order to listen the click event to the checkbox the below code is executed
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if(isChecked){
+                    Toast.makeText(secondActivity.this, "CheckBox is checked", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(secondActivity.this, "Unchecked the CheckBox", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
+        radioGroup = findViewById(R.id.radioGroup);
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
+                RadioButton radioButton = findViewById(checkedId);
+                Toast.makeText(secondActivity.this, radioButton.getText().toString()+" is called", Toast.LENGTH_SHORT).show();
+            }
+        });
         //Below is an example of implicit intent where the switch is between this (current) application
         // and other outer applications available in the system
 
