@@ -30,6 +30,15 @@ public class secondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
+        Button btn= findViewById(R.id.btn4);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToThirdActivity();
+                Toast.makeText(secondActivity.this, "Explicit Intent is called", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         checkBox = findViewById(R.id.check_box);
 //  In order to listen the click event to the checkbox the below code is executed
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -115,5 +124,10 @@ public class secondActivity extends AppCompatActivity {
         Intent Google  = new Intent(Intent.ACTION_VIEW,web);
         Toast.makeText(this, "Implicit Intent2 is Called", Toast.LENGTH_LONG).show();
         startActivity(Google);
+    }
+
+    public void goToThirdActivity(){
+        Intent secondToThird = new Intent(this, thirdActivity.class);
+        startActivity(secondToThird);
     }
 }
