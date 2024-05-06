@@ -3,7 +3,10 @@ package com.example.lifecycyletoast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ProgressBar;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -11,6 +14,10 @@ public class thirdActivity extends AppCompatActivity {
 
     TimePicker timePicker;
     DatePicker  datePicker;
+    Button buttonProgress;
+    ProgressBar progressBar;
+
+    int progressCompletion = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +42,24 @@ public class thirdActivity extends AppCompatActivity {
             }
         });
 
+
+
+        progressBar = findViewById(R.id.progressBar);
+        buttonProgress = findViewById(R.id.btnProgressBar);
+
+
+        buttonProgress.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                progressCompletion = progressCompletion + 10;
+
+                if(progressCompletion>100){
+                    progressCompletion=0;
+                }
+                progressBar.setProgress(progressCompletion);
+            }
+        });
 
 
     }
