@@ -2,6 +2,7 @@ package com.example.lifecycyletoast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +17,8 @@ public class thirdActivity extends AppCompatActivity {
     DatePicker  datePicker;
     Button buttonProgress;
     ProgressBar progressBar;
+
+    Button audioBtn;
 
     int progressCompletion = 0;
 
@@ -61,6 +64,25 @@ public class thirdActivity extends AppCompatActivity {
             }
         });
 
+        audioBtn = findViewById(R.id.audioBtn);
+        audioBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToAudioActivity();
+                Toast.makeText(thirdActivity.this, "AudioActivity Called", Toast.LENGTH_SHORT).show();
+            }
+        });
 
+
+
+
+
+        
+
+
+    }
+    public void goToAudioActivity(){
+        Intent thirdToAudio= new Intent(this, audioActivity.class);
+        startActivity(thirdToAudio);
     }
 }
