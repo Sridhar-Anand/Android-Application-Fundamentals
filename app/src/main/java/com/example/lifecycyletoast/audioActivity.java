@@ -1,3 +1,4 @@
+
 package com.example.lifecycyletoast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 
-public class audioActivity extends AppCompatActivity {
+public class audioActivity extends AppCompatActivity implements View.OnClickListener{
 
 
     Button classic,meteor, himalayan, interceptor, super_meteor, conti_gt;
@@ -27,18 +28,36 @@ public class audioActivity extends AppCompatActivity {
         conti_gt = findViewById(R.id.contiBtn);
 
 
-        classic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                MediaPlayer media = new MediaPlayer();
-                MediaPlayer media= MediaPlayer.create(
-                        getApplicationContext(),
-                        R.raw.classic);
-
-                media.start();
-            }
-        });
+        classic.setOnClickListener(this);
+        meteor.setOnClickListener(this);
+        himalayan.setOnClickListener(this);
+        interceptor.setOnClickListener(this);
+        super_meteor.setOnClickListener(this);
+        conti_gt.setOnClickListener(this);
     }
 
 
+    @Override
+    public void onClick(View view) {
+
+        int clickedBtnId = view.getId();
+
+        if (clickedBtnId == R.id.classicBtn){
+            PlaySounds(R.raw.classic);}
+        else if (clickedBtnId == R.id.meteorBtn){
+            PlaySounds(R.raw.meteor);}
+        else if (clickedBtnId == R.id.himalayanBtn){
+            PlaySounds(R.raw.himalayan);}
+        else if (clickedBtnId == R.id.interceptorBtn){
+            PlaySounds(R.raw.interceptor);}
+        else if (clickedBtnId == R.id.superMeteorBtn){
+            PlaySounds(R.raw.super_meteor);}
+        else if (clickedBtnId == R.id.contiBtn){
+            PlaySounds(R.raw.continental_gt);}
+        }
+
+    public void PlaySounds(int id){
+        MediaPlayer mediaPlayer = MediaPlayer.create(this, id);
+        mediaPlayer.start();
+    }
 }
